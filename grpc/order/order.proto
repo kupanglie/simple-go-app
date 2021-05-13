@@ -1,0 +1,56 @@
+syntax="proto3";
+package order;
+option go_package = "order/order.proto";
+
+import "error.proto";
+
+message Data {
+    string orderID = 1;
+    string userID = 2;
+    string totalPrice = 3;
+    string invoice = 4;
+    string status = 5;
+    repeated DetailData products = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+message DetailData {
+    string orderDetailID = 1;
+    string productID = 2;
+    string price = 3;
+    string qty = 4;
+    string totalPrice = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message AddRequest {
+    string userID = 1;
+    repeated DetailData products = 2;
+}
+
+message AddResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message FindRequest {
+    string userID = 1;
+}
+
+message FindResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message DeleteRequest {
+    string orderID = 1;
+}
+
+message DeleteResponse {
+    Data data = 1;
+    Error error = 2;
+}

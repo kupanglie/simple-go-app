@@ -1,0 +1,11 @@
+syntax = "proto3";
+package cart;
+option go_package = "cart/handler.proto";
+
+import "cart.proto";
+
+service UserHandler {
+    rpc Add(AddRequest) returns (AddResponse) {}
+    rpc Find(FindRequest) returns (FindResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}

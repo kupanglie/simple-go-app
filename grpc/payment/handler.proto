@@ -1,0 +1,11 @@
+syntax = "proto3";
+package payment;
+option go_package = "payment/handler.proto";
+
+import "payment.proto";
+
+service UserHandler {
+    rpc Add(AddRequest) returns (AddResponse) {}
+    rpc Find(FindRequest) returns (FindResponse) {}
+    rpc Cancel(CancelRequest) returns (CancelResponse) {}
+}

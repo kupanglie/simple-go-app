@@ -1,0 +1,8 @@
+syntax = "proto3";
+package order;
+option go_package = "order/error.proto";
+
+message Error {
+    string code = 1;
+    string message = 2;
+}

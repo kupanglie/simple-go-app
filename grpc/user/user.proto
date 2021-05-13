@@ -1,0 +1,50 @@
+syntax="proto3";
+package user;
+option go_package = "user/user.proto";
+
+import "error.proto";
+
+message Data {
+    string id = 1;
+    string name = 2;
+    string created_at = 3;
+    string updated_at = 4;
+    string deleted_at = 5;
+}
+
+message AddRequest {
+    string name = 1;
+}
+
+message AddResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message FindRequest {
+    string id = 1;
+}
+
+message FindResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message EditRequest {
+    string id = 1;
+    string name = 2;
+}
+
+message EditResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteResponse {
+    Data data = 1;
+    Error error = 2;
+}

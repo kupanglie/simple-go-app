@@ -1,0 +1,11 @@
+syntax = "proto3";
+package order;
+option go_package = "order/handler.proto";
+
+import "order.proto";
+
+service UserHandler {
+    rpc Add(AddRequest) returns (AddResponse) {}
+    rpc Find(FindRequest) returns (FindResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}

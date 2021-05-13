@@ -1,0 +1,12 @@
+syntax = "proto3";
+package user;
+option go_package = "user/handler.proto";
+
+import "user.proto";
+
+service UserHandler {
+    rpc Add(AddRequest) returns (AddResponse) {}
+    rpc Find(FindRequest) returns (FindResponse) {}
+    rpc Edit(EditRequest) returns (EditResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}

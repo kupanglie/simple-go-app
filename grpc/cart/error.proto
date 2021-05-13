@@ -1,0 +1,8 @@
+syntax = "proto3";
+package cart;
+option go_package = "cart/error.proto";
+
+message Error {
+    string code = 1;
+    string message = 2;
+}

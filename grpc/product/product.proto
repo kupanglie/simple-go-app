@@ -1,0 +1,56 @@
+syntax="proto3";
+package product;
+option go_package = "product/product.proto";
+
+import "error.proto";
+
+message Data {
+    string id = 1;
+    string name = 2;
+    string price = 3;
+    string stock = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message AddRequest {
+    string name = 1;
+    string price = 2;
+    string stock = 3;
+}
+
+message AddResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message FindRequest {
+    string id = 1;
+}
+
+message FindResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message EditRequest {
+    string id = 1;
+    string name = 2;
+    string price = 3;
+    string stock = 4;
+}
+
+message EditResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteResponse {
+    Data data = 1;
+    Error error = 2;
+}

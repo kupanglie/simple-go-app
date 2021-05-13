@@ -1,0 +1,42 @@
+syntax = "proto3";
+package payment;
+option go_package = "payment/payment.proto";
+
+import "error.proto";
+
+message Data {
+    string invoice = 1;
+    string total_payment = 2;
+    string status = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message AddRequest {
+    string invoice = 1;
+    string total_payment = 2;
+}
+
+message AddResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message FindRequest {
+    string invoice = 1;
+}
+
+message FindResponse {
+    Data data = 1;
+    Error error = 2;
+}
+
+message CancelRequest {
+    string invoice = 1;
+}
+
+message CancelResponse {
+    Data data = 1;
+    Error error = 2;
+}

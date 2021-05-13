@@ -1,8 +1,11 @@
 CREATE TABLE `warung_alfin`.`payment` (
     `id` BINARY(16) PRIMARY KEY,
     `invoice` BINARY(16),
-    `status` TINYINT(1) UNSIGNED,
+    `total_payment` INT UNSIGNED,
+    `status` INT UNSIGNED,
     `created_at` DATETIME NOT NULL,
     `updated_at` DATETIME NULL,
     `deleted_at` DATETIME NULL
 );
+
+CREATE INDEX invoice_idx ON `warung_alfin`.`payment` (invoice);
