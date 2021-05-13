@@ -1,4 +1,4 @@
-CREATE TABLE `warung_alfin`.`product` (
+CREATE TABLE `warung_alfin_product`.`product` (
     `id` BINARY(16) PRIMARY KEY,
     `name` VARCHAR(255),
     `price` INT UNSIGNED,

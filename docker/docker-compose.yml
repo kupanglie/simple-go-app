@@ -1,14 +1,52 @@
 version: '3'
 services:
-    db:
-        container_name: mysql_db
+    db-user:
+        container_name: mysql_db_user
         image: mysql:8.0
-        ports:
-            - '13306:3306'
         restart: always
         environment:
-            MYSQL_DATABASE: 'warung-alfin'
+            MYSQL_DATABASE: 'warung_alfin_user'
             MYSQL_ROOT_PASSWORD: 'root'
         volumes:
-            - ./sql/:/docker-entrypoint-initdb.d
-            - ./development/db:/var/lib/mysql
+            - ./sql/user/:/docker-entrypoint-initdb.d
+            - ./development/db/user/:/var/lib/mysql
+    db-product:
+        container_name: mysql_db_product
+        image: mysql:8.0
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'warung_alfin_product'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./sql/product/:/docker-entrypoint-initdb.d
+            - ./development/db/product/:/var/lib/mysql
+    db-cart:
+        container_name: mysql_db_cart
+        image: mysql:8.0
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'warung_alfin_cart'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./sql/cart/:/docker-entrypoint-initdb.d
+            - ./development/db/cart/:/var/lib/mysql
+    db-order:
+        container_name: mysql_db_order
+        image: mysql:8.0
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'warung_alfin_order'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./sql/order/:/docker-entrypoint-initdb.d
+            - ./development/db/order/:/var/lib/mysql
+    db-payment:
+        container_name: mysql_db_payment
+        image: mysql:8.0
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'warung_alfin_payment'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./sql/payment/:/docker-entrypoint-initdb.d
+            - ./development/db/payment/:/var/lib/mysql

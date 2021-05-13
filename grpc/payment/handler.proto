@@ -8,4 +8,5 @@ service UserHandler {
     rpc Add(AddRequest) returns (AddResponse) {}
     rpc Find(FindRequest) returns (FindResponse) {}
     rpc Cancel(CancelRequest) returns (CancelResponse) {}
+    rpc Finish(FinishRequest) returns (FinishResponse) {}
 }

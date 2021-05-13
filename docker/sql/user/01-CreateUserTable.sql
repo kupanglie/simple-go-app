@@ -1,4 +1,4 @@
-CREATE TABLE `warung_alfin`.`user` (
+CREATE TABLE `warung_alfin_user`.`user` (
     `id` BINARY(16) PRIMARY KEY,
     `name` VARCHAR(255),
     `created_at` DATETIME NOT NULL,

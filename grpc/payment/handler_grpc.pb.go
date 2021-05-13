@@ -22,6 +22,7 @@ type UserHandlerClient interface {
 	Add(ctx context.Context, in *payment_proto.AddRequest, opts ...grpc.CallOption) (*payment_proto.AddResponse, error)
 	Find(ctx context.Context, in *payment_proto.FindRequest, opts ...grpc.CallOption) (*payment_proto.FindResponse, error)
 	Cancel(ctx context.Context, in *payment_proto.CancelRequest, opts ...grpc.CallOption) (*payment_proto.CancelResponse, error)
+	Finish(ctx context.Context, in *payment_proto.FinishRequest, opts ...grpc.CallOption) (*payment_proto.FinishResponse, error)
 }
 
 type userHandlerClient struct {
@@ -59,6 +60,15 @@ func (c *userHandlerClient) Cancel(ctx context.Context, in *payment_proto.Cancel
 	return out, nil
 }
 
+func (c *userHandlerClient) Finish(ctx context.Context, in *payment_proto.FinishRequest, opts ...grpc.CallOption) (*payment_proto.FinishResponse, error) {
+	out := new(payment_proto.FinishResponse)
+	err := c.cc.Invoke(ctx, "/payment.UserHandler/Finish", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserHandlerServer is the server API for UserHandler service.
 // All implementations must embed UnimplementedUserHandlerServer
 // for forward compatibility
@@ -66,6 +76,7 @@ type UserHandlerServer interface {
 	Add(context.Context, *payment_proto.AddRequest) (*payment_proto.AddResponse, error)
 	Find(context.Context, *payment_proto.FindRequest) (*payment_proto.FindResponse, error)
 	Cancel(context.Context, *payment_proto.CancelRequest) (*payment_proto.CancelResponse, error)
+	Finish(context.Context, *payment_proto.FinishRequest) (*payment_proto.FinishResponse, error)
 	mustEmbedUnimplementedUserHandlerServer()
 }
 
@@ -81,6 +92,9 @@ func (UnimplementedUserHandlerServer) Find(context.Context, *payment_proto.FindR
 }
 func (UnimplementedUserHandlerServer) Cancel(context.Context, *payment_proto.CancelRequest) (*payment_proto.CancelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedUserHandlerServer) Finish(context.Context, *payment_proto.FinishRequest) (*payment_proto.FinishResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Finish not implemented")
 }
 func (UnimplementedUserHandlerServer) mustEmbedUnimplementedUserHandlerServer() {}
 
@@ -149,6 +163,24 @@ func _UserHandler_Cancel_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserHandler_Finish_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(payment_proto.FinishRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserHandlerServer).Finish(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/payment.UserHandler/Finish",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserHandlerServer).Finish(ctx, req.(*payment_proto.FinishRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // UserHandler_ServiceDesc is the grpc.ServiceDesc for UserHandler service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -167,6 +199,10 @@ var UserHandler_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Cancel",
 			Handler:    _UserHandler_Cancel_Handler,
+		},
+		{
+			MethodName: "Finish",
+			Handler:    _UserHandler_Finish_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

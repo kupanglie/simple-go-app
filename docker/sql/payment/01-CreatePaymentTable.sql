@@ -1,4 +1,4 @@
-CREATE TABLE `warung_alfin`.`payment` (
+CREATE TABLE `warung_alfin_payment`.`payment` (
     `id` BINARY(16) PRIMARY KEY,
     `invoice` BINARY(16),
     `total_payment` INT UNSIGNED,
@@ -8,4 +8,4 @@ CREATE TABLE `warung_alfin`.`payment` (
     `deleted_at` DATETIME NULL
 );
 
-CREATE INDEX invoice_idx ON `warung_alfin`.`payment` (invoice);
+CREATE INDEX invoice_idx ON `warung_alfin_payment`.`payment` (invoice);
