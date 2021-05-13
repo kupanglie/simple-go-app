@@ -1,0 +1,14 @@
+version: '3'
+services:
+    db:
+        container_name: mysql_db
+        image: mysql:8.0
+        ports:
+            - '13306:3306'
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'warung-alfin'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./sql/:/docker-entrypoint-initdb.d
+            - ./development/db:/var/lib/mysql
