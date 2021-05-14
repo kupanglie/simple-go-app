@@ -4,14 +4,13 @@
 // 	protoc        v3.6.1
 // source: user.proto
 
-package user_proto
+package user
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	error_proto "user/error.proto"
 )
 
 const (
@@ -152,8 +151,8 @@ type AddResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *AddResponse) Reset() {
@@ -195,7 +194,7 @@ func (x *AddResponse) GetData() *Data {
 	return nil
 }
 
-func (x *AddResponse) GetError() *error_proto.Error {
+func (x *AddResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -254,8 +253,8 @@ type FindResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *FindResponse) Reset() {
@@ -297,7 +296,7 @@ func (x *FindResponse) GetData() *Data {
 	return nil
 }
 
-func (x *FindResponse) GetError() *error_proto.Error {
+func (x *FindResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -364,8 +363,8 @@ type EditResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *EditResponse) Reset() {
@@ -407,7 +406,7 @@ func (x *EditResponse) GetData() *Data {
 	return nil
 }
 
-func (x *EditResponse) GetError() *error_proto.Error {
+func (x *EditResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -466,8 +465,8 @@ type DeleteResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *DeleteResponse) Reset() {
@@ -509,7 +508,7 @@ func (x *DeleteResponse) GetData() *Data {
 	return nil
 }
 
-func (x *DeleteResponse) GetError() *error_proto.Error {
+func (x *DeleteResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -559,9 +558,8 @@ var file_user_proto_rawDesc = []byte{
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x44, 0x61,
 	0x74, 0x61, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x12, 0x21, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f,
 	0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x45,
-	0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42, 0x11, 0x5a, 0x0f, 0x75,
-	0x73, 0x65, 0x72, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42, 0x07, 0x5a, 0x05, 0x2f,
+	0x75, 0x73, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -578,16 +576,16 @@ func file_user_proto_rawDescGZIP() []byte {
 
 var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_user_proto_goTypes = []interface{}{
-	(*Data)(nil),              // 0: user.Data
-	(*AddRequest)(nil),        // 1: user.AddRequest
-	(*AddResponse)(nil),       // 2: user.AddResponse
-	(*FindRequest)(nil),       // 3: user.FindRequest
-	(*FindResponse)(nil),      // 4: user.FindResponse
-	(*EditRequest)(nil),       // 5: user.EditRequest
-	(*EditResponse)(nil),      // 6: user.EditResponse
-	(*DeleteRequest)(nil),     // 7: user.DeleteRequest
-	(*DeleteResponse)(nil),    // 8: user.DeleteResponse
-	(*error_proto.Error)(nil), // 9: user.Error
+	(*Data)(nil),           // 0: user.Data
+	(*AddRequest)(nil),     // 1: user.AddRequest
+	(*AddResponse)(nil),    // 2: user.AddResponse
+	(*FindRequest)(nil),    // 3: user.FindRequest
+	(*FindResponse)(nil),   // 4: user.FindResponse
+	(*EditRequest)(nil),    // 5: user.EditRequest
+	(*EditResponse)(nil),   // 6: user.EditResponse
+	(*DeleteRequest)(nil),  // 7: user.DeleteRequest
+	(*DeleteResponse)(nil), // 8: user.DeleteResponse
+	(*Error)(nil),          // 9: user.Error
 }
 var file_user_proto_depIdxs = []int32{
 	0, // 0: user.AddResponse.data:type_name -> user.Data
@@ -610,6 +608,7 @@ func file_user_proto_init() {
 	if File_user_proto != nil {
 		return
 	}
+	file_error_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Data); i {

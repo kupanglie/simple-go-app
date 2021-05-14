@@ -1,6 +1,6 @@
 syntax = "proto3";
 package user;
-option go_package = "user/error.proto";
+option go_package = "/user";
 
 message Error {
     string code = 1;
