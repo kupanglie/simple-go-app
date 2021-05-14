@@ -4,12 +4,11 @@
 // 	protoc        v3.6.1
 // source: handler.proto
 
-package handler_proto
+package order
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	order_proto "order/order.proto"
 	reflect "reflect"
 )
 
@@ -36,17 +35,17 @@ var file_handler_proto_rawDesc = []byte{
 	0x12, 0x14, 0x2e, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52,
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x44,
 	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42,
-	0x15, 0x5a, 0x13, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2f, 0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x72,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x08, 0x5a, 0x06, 0x2f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var file_handler_proto_goTypes = []interface{}{
-	(*order_proto.AddRequest)(nil),     // 0: order.AddRequest
-	(*order_proto.FindRequest)(nil),    // 1: order.FindRequest
-	(*order_proto.DeleteRequest)(nil),  // 2: order.DeleteRequest
-	(*order_proto.AddResponse)(nil),    // 3: order.AddResponse
-	(*order_proto.FindResponse)(nil),   // 4: order.FindResponse
-	(*order_proto.DeleteResponse)(nil), // 5: order.DeleteResponse
+	(*AddRequest)(nil),     // 0: order.AddRequest
+	(*FindRequest)(nil),    // 1: order.FindRequest
+	(*DeleteRequest)(nil),  // 2: order.DeleteRequest
+	(*AddResponse)(nil),    // 3: order.AddResponse
+	(*FindResponse)(nil),   // 4: order.FindResponse
+	(*DeleteResponse)(nil), // 5: order.DeleteResponse
 }
 var file_handler_proto_depIdxs = []int32{
 	0, // 0: order.UserHandler.Add:input_type -> order.AddRequest
@@ -67,6 +66,7 @@ func file_handler_proto_init() {
 	if File_handler_proto != nil {
 		return
 	}
+	file_order_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package payment;
-option go_package = "payment/payment.proto";
+option go_package = "/payment";
 
 import "error.proto";
 

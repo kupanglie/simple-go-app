@@ -4,12 +4,11 @@
 // 	protoc        v3.6.1
 // source: handler.proto
 
-package handler_proto
+package product
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	product_proto "product/product.proto"
 	reflect "reflect"
 )
 
@@ -40,20 +39,19 @@ var file_handler_proto_rawDesc = []byte{
 	0x65, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x44, 0x65,
 	0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x70, 0x72,
 	0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x17, 0x5a, 0x15, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63,
-	0x74, 0x2f, 0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x0a, 0x5a, 0x08, 0x2f, 0x70, 0x72, 0x6f, 0x64, 0x75,
+	0x63, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var file_handler_proto_goTypes = []interface{}{
-	(*product_proto.AddRequest)(nil),     // 0: product.AddRequest
-	(*product_proto.FindRequest)(nil),    // 1: product.FindRequest
-	(*product_proto.EditRequest)(nil),    // 2: product.EditRequest
-	(*product_proto.DeleteRequest)(nil),  // 3: product.DeleteRequest
-	(*product_proto.AddResponse)(nil),    // 4: product.AddResponse
-	(*product_proto.FindResponse)(nil),   // 5: product.FindResponse
-	(*product_proto.EditResponse)(nil),   // 6: product.EditResponse
-	(*product_proto.DeleteResponse)(nil), // 7: product.DeleteResponse
+	(*AddRequest)(nil),     // 0: product.AddRequest
+	(*FindRequest)(nil),    // 1: product.FindRequest
+	(*EditRequest)(nil),    // 2: product.EditRequest
+	(*DeleteRequest)(nil),  // 3: product.DeleteRequest
+	(*AddResponse)(nil),    // 4: product.AddResponse
+	(*FindResponse)(nil),   // 5: product.FindResponse
+	(*EditResponse)(nil),   // 6: product.EditResponse
+	(*DeleteResponse)(nil), // 7: product.DeleteResponse
 }
 var file_handler_proto_depIdxs = []int32{
 	0, // 0: product.UserHandler.Add:input_type -> product.AddRequest
@@ -76,6 +74,7 @@ func file_handler_proto_init() {
 	if File_handler_proto != nil {
 		return
 	}
+	file_product_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

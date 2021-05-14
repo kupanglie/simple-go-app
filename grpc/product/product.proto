@@ -1,6 +1,6 @@
 syntax="proto3";
 package product;
-option go_package = "product/product.proto";
+option go_package = "/product";
 
 import "error.proto";
 

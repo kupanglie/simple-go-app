@@ -1,6 +1,6 @@
 syntax = "proto3";
 package cart;
-option go_package = "cart/handler.proto";
+option go_package = "/cart";
 
 import "cart.proto";
 

@@ -4,10 +4,9 @@
 // 	protoc        v3.6.1
 // source: cart.proto
 
-package cart_proto
+package cart
 
 import (
-	error_proto "cart/error.proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -279,8 +278,8 @@ type AddResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *AddResponse) Reset() {
@@ -322,7 +321,7 @@ func (x *AddResponse) GetData() *Data {
 	return nil
 }
 
-func (x *AddResponse) GetError() *error_proto.Error {
+func (x *AddResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -381,8 +380,8 @@ type FindResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *FindResponse) Reset() {
@@ -424,7 +423,7 @@ func (x *FindResponse) GetData() *Data {
 	return nil
 }
 
-func (x *FindResponse) GetError() *error_proto.Error {
+func (x *FindResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -483,8 +482,8 @@ type DeleteResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *DeleteResponse) Reset() {
@@ -526,7 +525,7 @@ func (x *DeleteResponse) GetData() *Data {
 	return nil
 }
 
-func (x *DeleteResponse) GetError() *error_proto.Error {
+func (x *DeleteResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -593,8 +592,8 @@ var file_cart_proto_rawDesc = []byte{
 	0x2e, 0x63, 0x61, 0x72, 0x74, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61,
 	0x12, 0x21, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x0b, 0x2e, 0x63, 0x61, 0x72, 0x74, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72,
-	0x72, 0x6f, 0x72, 0x42, 0x11, 0x5a, 0x0f, 0x63, 0x61, 0x72, 0x74, 0x2f, 0x63, 0x61, 0x72, 0x74,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x6f, 0x72, 0x42, 0x07, 0x5a, 0x05, 0x2f, 0x63, 0x61, 0x72, 0x74, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -611,15 +610,15 @@ func file_cart_proto_rawDescGZIP() []byte {
 
 var file_cart_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_cart_proto_goTypes = []interface{}{
-	(*Data)(nil),              // 0: cart.Data
-	(*DetailData)(nil),        // 1: cart.DetailData
-	(*AddRequest)(nil),        // 2: cart.AddRequest
-	(*AddResponse)(nil),       // 3: cart.AddResponse
-	(*FindRequest)(nil),       // 4: cart.FindRequest
-	(*FindResponse)(nil),      // 5: cart.FindResponse
-	(*DeleteRequest)(nil),     // 6: cart.DeleteRequest
-	(*DeleteResponse)(nil),    // 7: cart.DeleteResponse
-	(*error_proto.Error)(nil), // 8: cart.Error
+	(*Data)(nil),           // 0: cart.Data
+	(*DetailData)(nil),     // 1: cart.DetailData
+	(*AddRequest)(nil),     // 2: cart.AddRequest
+	(*AddResponse)(nil),    // 3: cart.AddResponse
+	(*FindRequest)(nil),    // 4: cart.FindRequest
+	(*FindResponse)(nil),   // 5: cart.FindResponse
+	(*DeleteRequest)(nil),  // 6: cart.DeleteRequest
+	(*DeleteResponse)(nil), // 7: cart.DeleteResponse
+	(*Error)(nil),          // 8: cart.Error
 }
 var file_cart_proto_depIdxs = []int32{
 	1, // 0: cart.Data.products:type_name -> cart.DetailData
@@ -642,6 +641,7 @@ func file_cart_proto_init() {
 	if File_cart_proto != nil {
 		return
 	}
+	file_error_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_cart_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Data); i {

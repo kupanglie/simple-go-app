@@ -4,12 +4,11 @@
 // 	protoc        v3.6.1
 // source: product.proto
 
-package product_proto
+package product
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	error_proto "product/error.proto"
 	reflect "reflect"
 	sync "sync"
 )
@@ -184,8 +183,8 @@ type AddResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *AddResponse) Reset() {
@@ -227,7 +226,7 @@ func (x *AddResponse) GetData() *Data {
 	return nil
 }
 
-func (x *AddResponse) GetError() *error_proto.Error {
+func (x *AddResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -286,8 +285,8 @@ type FindResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *FindResponse) Reset() {
@@ -329,7 +328,7 @@ func (x *FindResponse) GetData() *Data {
 	return nil
 }
 
-func (x *FindResponse) GetError() *error_proto.Error {
+func (x *FindResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -412,8 +411,8 @@ type EditResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *EditResponse) Reset() {
@@ -455,7 +454,7 @@ func (x *EditResponse) GetData() *Data {
 	return nil
 }
 
-func (x *EditResponse) GetError() *error_proto.Error {
+func (x *EditResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -514,8 +513,8 @@ type DeleteResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Data  *Data              `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Error *error_proto.Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Data  *Data  `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
 func (x *DeleteResponse) Reset() {
@@ -557,7 +556,7 @@ func (x *DeleteResponse) GetData() *Data {
 	return nil
 }
 
-func (x *DeleteResponse) GetError() *error_proto.Error {
+func (x *DeleteResponse) GetError() *Error {
 	if x != nil {
 		return x.Error
 	}
@@ -617,9 +616,9 @@ var file_product_proto_rawDesc = []byte{
 	0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x44, 0x61, 0x74,
 	0x61, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x12, 0x24, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
-	0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42, 0x17, 0x5a,
-	0x15, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42, 0x0a, 0x5a,
+	0x08, 0x2f, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -636,16 +635,16 @@ func file_product_proto_rawDescGZIP() []byte {
 
 var file_product_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_product_proto_goTypes = []interface{}{
-	(*Data)(nil),              // 0: product.Data
-	(*AddRequest)(nil),        // 1: product.AddRequest
-	(*AddResponse)(nil),       // 2: product.AddResponse
-	(*FindRequest)(nil),       // 3: product.FindRequest
-	(*FindResponse)(nil),      // 4: product.FindResponse
-	(*EditRequest)(nil),       // 5: product.EditRequest
-	(*EditResponse)(nil),      // 6: product.EditResponse
-	(*DeleteRequest)(nil),     // 7: product.DeleteRequest
-	(*DeleteResponse)(nil),    // 8: product.DeleteResponse
-	(*error_proto.Error)(nil), // 9: product.Error
+	(*Data)(nil),           // 0: product.Data
+	(*AddRequest)(nil),     // 1: product.AddRequest
+	(*AddResponse)(nil),    // 2: product.AddResponse
+	(*FindRequest)(nil),    // 3: product.FindRequest
+	(*FindResponse)(nil),   // 4: product.FindResponse
+	(*EditRequest)(nil),    // 5: product.EditRequest
+	(*EditResponse)(nil),   // 6: product.EditResponse
+	(*DeleteRequest)(nil),  // 7: product.DeleteRequest
+	(*DeleteResponse)(nil), // 8: product.DeleteResponse
+	(*Error)(nil),          // 9: product.Error
 }
 var file_product_proto_depIdxs = []int32{
 	0, // 0: product.AddResponse.data:type_name -> product.Data
@@ -668,6 +667,7 @@ func file_product_proto_init() {
 	if File_product_proto != nil {
 		return
 	}
+	file_error_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_product_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Data); i {
