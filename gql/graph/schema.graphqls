@@ -1,0 +1,20 @@
+# =========================== TYPES =========================== #
+type UserData {
+  ID: String!
+  Name: String!
+  CreatedAt: String!
+  UpdatedAt: String!
+  DeletedAt: String!
+}
+
+# =========================== QUERY =========================== #
+type Query {
+  UserFind(UserID: String!): UserData!
+}
+
+# ========================== MUTATION ========================== #
+type Mutation {
+  UserAdd(Name: String!): UserData!
+  UserEdit(UserID: String!, Name: String!): UserData!
+  UserDelete(UserID: String!): UserData! 
+}
