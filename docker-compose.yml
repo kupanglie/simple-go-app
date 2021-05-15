@@ -12,8 +12,8 @@ services:
         expose: 
             - '3307'
         volumes:
-            - ./sql/user/:/docker-entrypoint-initdb.d
-            - ./development/db/user/:/var/lib/mysql
+            - ./docker/sql/user/:/docker-entrypoint-initdb.d
+            - ./docker/development/db/user/:/var/lib/mysql
     db-product:
         container_name: mysql_db_product
         image: mysql:8.0
@@ -26,8 +26,8 @@ services:
         expose: 
             - '3308'
         volumes:
-            - ./sql/product/:/docker-entrypoint-initdb.d
-            - ./development/db/product/:/var/lib/mysql
+            - ./docker/sql/product/:/docker-entrypoint-initdb.d
+            - ./docker/development/db/product/:/var/lib/mysql
     db-cart:
         container_name: mysql_db_cart
         image: mysql:8.0
@@ -40,8 +40,8 @@ services:
         expose: 
             - '3309'
         volumes:
-            - ./sql/cart/:/docker-entrypoint-initdb.d
-            - ./development/db/cart/:/var/lib/mysql
+            - ./docker/sql/cart/:/docker-entrypoint-initdb.d
+            - ./docker/development/db/cart/:/var/lib/mysql
     db-order:
         container_name: mysql_db_order
         image: mysql:8.0
@@ -54,8 +54,8 @@ services:
         expose: 
             - '3310'
         volumes:
-            - ./sql/order/:/docker-entrypoint-initdb.d
-            - ./development/db/order/:/var/lib/mysql
+            - ./docker/sql/order/:/docker-entrypoint-initdb.d
+            - ./docker/development/db/order/:/var/lib/mysql
     db-payment:
         container_name: mysql_db_payment
         image: mysql:8.0
@@ -68,5 +68,15 @@ services:
         expose: 
             - '3311'
         volumes:
-            - ./sql/payment/:/docker-entrypoint-initdb.d
-            - ./development/db/payment/:/var/lib/mysql
+            - ./docker/sql/payment/:/docker-entrypoint-initdb.d
+            - ./docker/development/db/payment/:/var/lib/mysql
+    gqlserver:
+        build: ./gqlserver
+        # container_name: gqlserver
+        # image: golang:1.13
+        # ports:
+        #     - 8080:8080
+        # volumes:
+        #     - ./docker/development/gqlserver/:/home/alfin/go-workspace/src/github.com/kupanglie/simple-go-app/gqlserver
+        # working_dir: /home/alfin/go-workspace/src/github.com/kupanglie/simple-go-app/gqlserver
+        # command: ["go", "build", "main.go", "&&", "./main.go"]

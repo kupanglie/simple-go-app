@@ -1,2 +1,3 @@
 docker/development
-gql/vendor
+gqlserver/vendor
+gqlserver/main
