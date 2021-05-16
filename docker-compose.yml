@@ -72,11 +72,5 @@ services:
             - ./docker/development/db/payment/:/var/lib/mysql
     gqlserver:
         build: ./gqlserver
-        # container_name: gqlserver
-        # image: golang:1.13
-        # ports:
-        #     - 8080:8080
-        # volumes:
-        #     - ./docker/development/gqlserver/:/home/alfin/go-workspace/src/github.com/kupanglie/simple-go-app/gqlserver
-        # working_dir: /home/alfin/go-workspace/src/github.com/kupanglie/simple-go-app/gqlserver
-        # command: ["go", "build", "main.go", "&&", "./main.go"]
+    grpc-user:
+        build: ./service/user
