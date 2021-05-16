@@ -69,17 +69,16 @@ func (c *userHandlerClient) Finish(ctx context.Context, in *FinishRequest, opts 
 }
 
 // UserHandlerServer is the server API for UserHandler service.
-// All implementations must embed UnimplementedUserHandlerServer
+// All implementations should embed UnimplementedUserHandlerServer
 // for forward compatibility
 type UserHandlerServer interface {
 	Add(context.Context, *AddRequest) (*AddResponse, error)
 	Find(context.Context, *FindRequest) (*FindResponse, error)
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	Finish(context.Context, *FinishRequest) (*FinishResponse, error)
-	mustEmbedUnimplementedUserHandlerServer()
 }
 
-// UnimplementedUserHandlerServer must be embedded to have forward compatible implementations.
+// UnimplementedUserHandlerServer should be embedded to have forward compatible implementations.
 type UnimplementedUserHandlerServer struct {
 }
 
@@ -95,7 +94,6 @@ func (UnimplementedUserHandlerServer) Cancel(context.Context, *CancelRequest) (*
 func (UnimplementedUserHandlerServer) Finish(context.Context, *FinishRequest) (*FinishResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Finish not implemented")
 }
-func (UnimplementedUserHandlerServer) mustEmbedUnimplementedUserHandlerServer() {}
 
 // UnsafeUserHandlerServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to UserHandlerServer will
